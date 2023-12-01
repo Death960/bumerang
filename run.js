@@ -10,6 +10,3 @@ const game = new Game({
 
 // Запуск игры.
 game.play();
-
-//dark Souls
-//lol
