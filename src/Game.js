@@ -13,9 +13,10 @@ const View = require('./View');
 class Game {
   constructor({ trackLength }) {
     this.trackLength = trackLength;
-    this.hero = new Hero(new Boomerang); // Герою можно аргументом передать бумеранг.
+    this.hero = new Hero({ position: 0, game: this });
+    this.boomerang = new Boomerang({ trackLength, hero: this.hero });
     this.enemy = new Enemy();
-    this.view = new View();
+    this.view = new View(this);
     this.track = [];
     this.regenerateTrack();
   }
@@ -23,7 +24,7 @@ class Game {
   regenerateTrack() {
     // Сборка всего необходимого (герой, враг(и), оружие)
     // в единую структуру данных
-    this.track = (new Array(this.trackLength)).fill(' ');
+    this.track = new Array(this.trackLength).fill(' ');
     this.track[this.hero.position] = this.hero.skin;
   }
 

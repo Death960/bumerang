@@ -1,13 +1,25 @@
 // Враг.
 
 class Enemy {
-  constructor() {
+  constructor(trackLenght) {
     this.generateSkin();
-    this.position = 70;
+    this.position = trackLenght - 1;
   }
 
   generateSkin() {
-    const skins = ['👾', '👹', '👻', '👽', '👿', '💩', '🤡', '🤺', '🧛', '🧟', '🎃'];
+    const skins = [
+      '👾',
+      '👹',
+      '👻',
+      '👽',
+      '👿',
+      '💩',
+      '🤡',
+      '🤺',
+      '🧛',
+      '🧟',
+      '🎃',
+    ];
     this.skin = skins[Math.floor(Math.random() * skins.length)];
   }
 
